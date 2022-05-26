@@ -1,10 +1,13 @@
 <div class="p-6">
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
+        <x-jet-button class="mr-5" wire:click="dispatchEvent">
+            {{ __('Dispatch Event') }}
+        </x-jet-button>
         <x-jet-button wire:click="createShowModal">
             {{ __('Create') }}
         </x-jet-button>
     </div>
-    
+
     {{-- The data table --}}
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -66,28 +69,40 @@
     
     <br/>
     {{ $data->links() }}
-    
+
     {{-- Modal Form --}}
     <x-jet-dialog-modal wire:model="modalFormVisible">
         <x-slot name="title">
-            {{ __('Save Page') }} {{ $modelId }}
+            {{ __('Save Page') }}
         </x-slot>
 
         <x-slot name="content">
             <div class="mt-4">
                 <x-jet-label for="title" value="{{ __('Title') }}" />
-                <x-jet-input id="title" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="title"  />
+                <x-jet-input id="title" class="block mt-1 w-full" type="text" wire:model.debounce.800ms="title" />
                 @error('title') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
-                <x-jet-label for="tire" value="{{ __('Slug') }}" />
+                <x-jet-label for="title" value="{{ __('Slug') }}" />
                 <div class="mt-1 flex rounded-md shadow-sm">
-                    <span class="inline-flex items-center px-3 rounded-l-md border border-r-1 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+                    <span class="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
                         http://localhost:8000/
                     </span>
                     <input wire:model="slug" class="form-input flex-1 block w-full rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="url-slug">
                 </div>
                 @error('slug') <span class="error">{{ $message }}</span> @enderror
+            </div>
+            <div class="mt-4">
+                <label>
+                    <input class="form-checkbox" type="checkbox" value="{{ $isSetToDefaultHomePage }}" wire:model="isSetToDefaultHomePage"/>
+                    <span class="ml-2 text-sm text-gray-600">Set as the default home page</span>
+                </label>
+            </div>
+            <div class="mt-4">
+                <label>
+                    <input class="form-checkbox" type="checkbox" value="{{ $isSetToDefaultNotFoundPage }}" wire:model="isSetToDefaultNotFoundPage"/>
+                    <span class="ml-2 text-sm text-red-600">Set as the default 404 error page</span>
+                </label>
             </div>
             <div class="mt-4">
                 <x-jet-label for="title" value="{{ __('Content') }}" />
@@ -111,6 +126,7 @@
             <x-jet-secondary-button wire:click="$toggle('modalFormVisible')" wire:loading.attr="disabled">
                 {{ __('Nevermind') }}
             </x-jet-secondary-button>
+
             @if ($modelId)
                 <x-jet-button class="ml-2" wire:click="update" wire:loading.attr="disabled">
                     {{ __('Update') }}
@@ -145,5 +161,4 @@
             </x-jet-danger-button>
         </x-slot>
     </x-jet-dialog-modal>
-
 </div>
