@@ -36,6 +36,13 @@ class EnsureUserRoleIsAllowedToAccess
                 'pages',
                 'users',
                 'navigation-menus',
+            ],
+            
+            'user' => [
+                'dashboard',
+                'pages',
+            
+            
                 
             ],
         ];
