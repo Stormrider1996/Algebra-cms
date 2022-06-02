@@ -1,4 +1,18 @@
-S obzirom na komentar od mentora Luke NekiÄ‡a dodajem ovaj txt kao pravilnik kako postaviti aplikaciju i zasto se dogadaju odreÄ‘eni errori. 
+S obzirom na komentar od mentora Luke Nekiæa dodajem ovaj txt kao pravilnik kako postaviti aplikaciju i zasto se dogadaju odreğeni errori. 
 
-Error "Attempt to read property "title" on null'" se pojavljuje zato Å¡to ne postoji homepoge, aplikacija je zamiÅ¡ljena da uloga admina ima moguÄnost kreiranja homepagea kakvog zeli.
+Error "Attempt to read property "title" on null'" se pojavljuje zato što ne postoji homepoge, aplikacija je zamišljena da uloga admina ima moguènost kreiranja homepagea kakvog zeli. Da bi se aplikacija servirala kako treba potrebno je napraviti sljedeæe. 
+
+-Treba registrirati bar 1 korisnika koji æe po defaultu u bazi podataka dobiti role user
+
+-Nakon toga treba otiæi u bazu podataka i izmjeniti njegov roll u admin.
+
+-Time taj korisnik ima moguènost navigiranja svih dostupnih routa
+
+-Zatim da bi se izbjegao error koji sam napomenuo gore, admin moze otici u pages tab i kreirati svoj homepage i 404 not found page
+
+*Mislim da je to sve. Isprièavam se što nisam dodao ovaj text file prije da objasnim kako se aplikacija postavlja. 
+
+**Dodatno sam u README-u dodao postupak za setupanje aplikacije. 
+
+***Usput šaljem vam link repostorija https://github.com/Stormrider1996/Algebra-cms 
  
