@@ -15,3 +15,8 @@
 4. run php artisan migrate to migrate all the data to the database 
 5. run php artisan serve 
 
+If everything was settup correctly you should be getting an error "Attempt to read property "title" on null" because a homepage does not exist, an admin has the ability to create a homepage of his choosing.
+
+1. In order to fix this go to the register route http://127.0.0.1:8000/register and make an account which will by default be user
+2. In your database rename the role of the account to admin 
+3. Since that account now has access to all the apps routes, go to http://127.0.0.1:8000/pages and create your own homepage and 404 not found page in order to remove the formentioned errors.

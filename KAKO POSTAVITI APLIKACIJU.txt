@@ -1,0 +1,4 @@
+S obzirom na komentar od mentora Luke Nekića dodajem ovaj txt kao pravilnik kako postaviti aplikaciju i zasto se dogadaju određeni errori. 
+
+Error "Attempt to read property "title" on null'" se pojavljuje zato što ne postoji homepoge, aplikacija je zamišljena da uloga admina ima mogučnost kreiranja homepagea kakvog zeli.
+ 
