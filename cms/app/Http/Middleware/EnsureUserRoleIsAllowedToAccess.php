@@ -40,10 +40,6 @@ class EnsureUserRoleIsAllowedToAccess
             
             'user' => [
                 'dashboard',
-                'pages',
-            
-            
-                
             ],
         ];
     }
