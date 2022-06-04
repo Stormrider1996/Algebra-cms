@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Page;
+use Exception;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -18,22 +19,29 @@ class Frontpage extends Component
 
     public function retrieveContent($urlslug)
     {
-        // Get home page if slug is empty
-        if (empty($urlslug)) {
-            $data = Page::where('is_default_home', true)->first();
-        } else {
+        try
+        {
+            // Get home page if slug is empty
+            if (empty($urlslug)) {
+                $data = Page::where('is_default_home', true)->first();
+            } else {
 
-            // Get the page according to the slug value
-            $data = Page::where('slug', $urlslug)->first();
+                // Get the page according to the slug value
+                $data = Page::where('slug', $urlslug)->first();
 
-            // If we can't retrieve anything, let's get the default 404 not found page
-            if (!$data) {
-                $data = Page::where('is_default_not_found', true)->first();
+                // If we can't retrieve anything, let's get the default 404 not found page
+                if (!$data) {
+                    $data = Page::where('is_default_not_found', true)->first();
+                }
             }
-        }
 
-        $this->title = $data->title;
-        $this->content = $data->content;
+            $this->title = $data->title;
+            $this->content = $data->content;
+        }
+        catch (Exception $e)
+        {
+            return redirect()->route('dashboard');
+        }
     }
 
     private function sideBarLinks()

@@ -1,0 +1,15 @@
+Hvala na pregledu i savjetima za izmjene.
+
+Napravio sam sljedece 
+
+1. Dodao sam try catch block za frontpage da redirecta na dashboard u slucaju exceptiona
+2. U database seeders fileu sam dodao kod 
+\App\Models\User::factory()->withPersonalTeam()->create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'role' => 'admin',
+3. Unosom komande php artisan db:seed ce unijeti admin usera sa credentialsima 
+email: admin@admin.com
+password: password
+
+Nadam se da će to biti zadovoljavajuće i hvala na strpljenju. 
