@@ -14,7 +14,7 @@
 3. Run npm install && npm run dev for all of the js files in the project (make sure you are in the correct directory)
 4. run php artisan migrate to migrate all the data to the database 
 5. for testing run command php artisan db:seed 
-6. testing admin user credentials are 
+6. testing admin credentials are 
 email: admin@admin.com
 password: password
 
